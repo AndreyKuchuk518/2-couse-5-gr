@@ -1,1 +1,6 @@
-print("Hello from lab1 task1")
+separat = input("Напишите знак для разделителя\n")
+a = input("Напишите числа которые нужно разделить\n")
+b = input()
+c = input()
+print("Результат")
+print(a, b, c, sep=separat)

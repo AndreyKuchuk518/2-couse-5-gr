@@ -1,8 +1,15 @@
 n = input("Введите число N: ")  
-product = 1  
 
-for digit_char in n:
-    digit_int = int(digit_char)
-    product = product * digit_int
+product = 1 
+found_digit = False
 
-print("Произведение всех цифр числа:", product)
+for char in n:
+    if char.isdigit():  # проверяет есть цифры
+        digit = int(char)
+        product = product * digit
+        found_digit = True
+     
+if found_digit:
+    print("Произведение всех цифр в строке:", product)
+else:
+    print("В строке не было цифр.")

@@ -1,12 +1,21 @@
 input_numbers = input("Введите числа через пробел: ")
-numbers = list(map(int, input_numbers.split()))
+parts = input_numbers.split()
 
-total = 0
-for num in numbers:
-    total = total + num  #сумма
+numbers = []
+for part in parts:
+    try:
+        num = int(part)
+        numbers.append(num)
+    except ValueError:
+        # Игнорируем нечисловые значения
+        continue
 
-count = len(numbers)  # для подсчёта элементов
-average = total / count
+if not numbers:
+    print("Не введено ни одного числа.")
+else:
+    total = sum(numbers)  # можно использовать встроенную функцию sum()
+    count = len(numbers)
+    average = total / count
 
-print("Список:", numbers)
-print("Среднее арифметическое:", average)
+    print("Список:", numbers)
+    print("Среднее арифметическое:", average)

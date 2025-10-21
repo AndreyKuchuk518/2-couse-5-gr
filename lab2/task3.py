@@ -1,8 +1,17 @@
+def parse_ints(s):
+    numbers = []
+    for part in s.split():
+        try:
+            numbers.append(int(part))
+        except ValueError:
+            continue  # пропускаем нечисловые элементы
+    return set(numbers)
+
 input1 = input("Введите элементы первого множества через пробел: ")
-set1 = set(map(int, input1.split())) #split разбивает на пробелы мап применяет функцию инт к каждому элементу сет - создаёт множество
+set1 = parse_ints(input1)
 
 input2 = input("Введите элементы второго множества через пробел: ")
-set2 = set(map(int, input2.split()))
+set2 = parse_ints(input2)
 
 only_in_one = set1.symmetric_difference(set2)
 

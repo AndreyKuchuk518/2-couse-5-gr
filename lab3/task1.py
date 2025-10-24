@@ -54,7 +54,7 @@ print("Добавляем товары...")
 order.add_item("Хлеб", 50)
 order.add_item("Молоко", 80)
 
-print("\nОбщая стоимость:", order.get_total())
+print("\nОбщая стоимость:", order.get_total()) #
 
 print("\nПопробуем удалить 'Хлеб':")
 order.remove_item("Хлеб")

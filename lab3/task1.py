@@ -57,4 +57,4 @@ order.remove_item("Хлеб")
 
 print("\nНовая общая стоимость:", order.get_total())
 
-print(f"\nВсего заказов создано: {Order.orders_quantity}")
+print(f"\nВсего заказов создано: {Order.orders_quantity}") #

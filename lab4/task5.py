@@ -1,38 +1,24 @@
-# Импортируем библиотеку для создания графиков
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # Импорт библиотеки для гра-ка
 
-# Создаем данные для графика
 categories = ['Яблоки', 'Бананы', 'Апельсины', 'Виноград', 'Киви']  # Названия категорий (будут на оси Y)
 sales = [23, 45, 12, 34, 28]  # Значения продаж для каждой категории (будут на оси X)
 
-# Создаем холст (figure) и область для рисования (axes) размером 10x6 дюймов
 fig, ax = plt.subplots(figsize=(10, 6))
 
-# Строим ГОРИЗОНТАЛЬНУЮ столбчатую диаграмму
-# categories будет по оси Y, sales по оси X
-# height=0.5 задает толщину столбцов (от 0 до 1)
-# color задает цвет всех столбцов
-ax.barh(categories, sales, height=0.5, color='skyblue', edgecolor='navy')
+ax.barh(categories, sales, height=0.5, color='skyblue', edgecolor='navy') # первые идут Y а затем X
 
-# Добавляем заголовок графика с размером шрифта 16
-ax.set_title('Продажи фруктов за неделю', fontsize=16)
+ax.set_title('Продажи фруктов за неделю', fontsize=16) # заголовок графика
 
-# Подписываем оси: ось X - количество продаж, ось Y - названия фруктов
 ax.set_xlabel('Количество проданных единиц', fontsize=12)
 ax.set_ylabel('Виды фруктов', fontsize=12)
 
-# Добавляем сетку по оси X для удобства чтения значений
-ax.grid(axis='x', linestyle='--', alpha=0.6)
+ax.grid(axis='x', linestyle='--', alpha=0.6) # сетка по оси X для удобства прочтения
 
-# Добавляем подпись со значениями на концах столбцов
 for i, value in enumerate(sales):
-    ax.text(value + 1, i, str(value), va='center', fontsize=10)
+    ax.text(value + 1, i, str(value), va='center', fontsize=10) # подпись со значениями на концах столбцов
 
-# Автоматически настраиваем отступы, чтобы ничего не обрезалось
-plt.tight_layout()
+plt.tight_layout() # отступы
 
-# Сохраняем график в файл с высоким качеством (300 точек на дюйм)
 plt.savefig('horizontal_bar_chart.png', dpi=300, bbox_inches='tight')
 
-# Отображаем график на экране
 plt.show()

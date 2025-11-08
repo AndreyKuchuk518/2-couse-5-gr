@@ -22,4 +22,4 @@ plt.grid(axis='x', linestyle='--', alpha=0.6)
 # Сохранение и отображение
 plt.savefig('task5.png', dpi=300, bbox_inches='tight')
 plt.savefig('task5.pdf', bbox_inches='tight')
-plt.show())
+plt.show()

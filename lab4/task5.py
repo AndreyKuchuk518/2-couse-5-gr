@@ -22,7 +22,7 @@ ax.set_xlabel('Количество проданных единиц', fontsize=1
 ax.set_ylabel('Виды фруктов', fontsize=12)
 
 # Добавляем сетку по оси X для удобства чтения значений
-ax.grid(axis='x', linestyle='--', alpha=0.7)
+ax.grid(axis='x', linestyle='--', alpha=0.6)
 
 # Добавляем подпись со значениями на концах столбцов
 for i, value in enumerate(sales):

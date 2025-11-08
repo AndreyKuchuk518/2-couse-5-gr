@@ -1,25 +1,38 @@
+# Импортируем библиотеку для создания графиков
 import matplotlib.pyplot as plt
 
-# Данные
-categories = ['Категория A', 'Категория B', 'Категория C', 'Категория D']
-values = [23, 45, 56, 78]
+# Создаем данные для графика
+categories = ['Яблоки', 'Бананы', 'Апельсины', 'Виноград', 'Киви']  # Названия категорий (будут на оси Y)
+sales = [23, 45, 12, 34, 28]  # Значения продаж для каждой категории (будут на оси X)
 
-# Создаём фигуру
-plt.figure(figsize=(8, 6))
+# Создаем холст (figure) и область для рисования (axes) размером 10x6 дюймов
+fig, ax = plt.subplots(figsize=(10, 6))
 
-# Построение горизонтальной столбчатой диаграммы
-# Вместо plt.bar(categories, values) используем plt.barh
-plt.barh(categories, values, color=['#ff9999','#66b3ff','#99ff99','#ffcc99'])
+# Строим ГОРИЗОНТАЛЬНУЮ столбчатую диаграмму
+# categories будет по оси Y, sales по оси X
+# height=0.5 задает толщину столбцов (от 0 до 1)
+# color задает цвет всех столбцов
+ax.barh(categories, sales, height=0.5, color='skyblue', edgecolor='navy')
 
-# Подписи
-plt.title('Горизонтальная столбчатая диаграмма')
-plt.xlabel('Значения')
-plt.ylabel('Категории')
+# Добавляем заголовок графика с размером шрифта 16
+ax.set_title('Продажи фруктов за неделю', fontsize=16)
 
-# Сетка
-plt.grid(axis='x', linestyle='--', alpha=0.6)
+# Подписываем оси: ось X - количество продаж, ось Y - названия фруктов
+ax.set_xlabel('Количество проданных единиц', fontsize=12)
+ax.set_ylabel('Виды фруктов', fontsize=12)
 
-# Сохранение и отображение
-plt.savefig('task5.png', dpi=300, bbox_inches='tight')
-plt.savefig('task5.pdf', bbox_inches='tight')
+# Добавляем сетку по оси X для удобства чтения значений
+ax.grid(axis='x', linestyle='--', alpha=0.7)
+
+# Добавляем подпись со значениями на концах столбцов
+for i, value in enumerate(sales):
+    ax.text(value + 1, i, str(value), va='center', fontsize=10)
+
+# Автоматически настраиваем отступы, чтобы ничего не обрезалось
+plt.tight_layout()
+
+# Сохраняем график в файл с высоким качеством (300 точек на дюйм)
+plt.savefig('horizontal_bar_chart.png', dpi=300, bbox_inches='tight')
+
+# Отображаем график на экране
 plt.show()
